@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: lightgoldenrodyellow;
+  font-family: sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-size: 5rem;
+  height: 25vh;
+  margin: 8px;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+
+  align-items: center;
+}
+
+.advice {
+  margin-top: 5rem;
+  font-size: 3rem;
+  color: black;
+}
+
+button {
+  width: 12rem;
+  height: 6rem;
+  text-transform: capitalize;
+  margin-top: 40%;
+  font-size: 2rem;
+}
+@media screen and (max-width: 39.5em) {
+  .title {
+    font-size: 3rem;
+    height: 25vh;
+    margin: 5px;
+  }
+  .advice {
+    margin: 2rem;
+    font-size: 2rem;
+    
+  }
+  button{
+    font-size: 1.4rem;
+
+  }
+}
