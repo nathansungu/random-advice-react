@@ -24,12 +24,17 @@ body {
   text-transform: capitalize;
   text-decoration: underline;
 }
+.content{
+  display: flex;
+  justify-content: center;
+  
+}
 
 .body {
   display: flex;
   flex-direction: column;
   height: 70vh;
-
+  width: 80%;
   align-items: center;
 }
 
@@ -50,7 +55,7 @@ button {
   .title {
     font-size: 3rem;
     height: 25vh;
-    margin: 5px;
+    margin: 2rem;
   }
   .advice {
     margin: 2rem;

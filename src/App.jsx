@@ -40,24 +40,26 @@ function App() {
 
   return (
     <>
-      <h1 className="title">random abvice page</h1>
+      <h1 className="title">random advice page</h1>
 
-      <div className="body">
-        {loading && <ClipLoader />}
-        {advice && <p className="advice"> {advice}</p>}
-        {error && <p className="error">{error}</p>}
+      <section className="content">
+        <div className="body">
+          {loading && <ClipLoader />}
+          {advice && <p className="advice"> {advice}</p>}
+          {error && <p className="error">{error}</p>}
 
-        <div className="form">
-          <button
-            disabled={loading}
-            onClick={(e) => {
-              fetchAdvice();
-            }}
-          >
-            {loading ? "please wait..." : "random advice"}
-          </button>
+          <div className="form">
+            <button
+              disabled={loading}
+              onClick={(e) => {
+                fetchAdvice();
+              }}
+            >
+              {loading ? "please wait..." : "random advice"}
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
