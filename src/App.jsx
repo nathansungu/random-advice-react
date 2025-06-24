@@ -8,13 +8,27 @@ function App() {
   const [error, setError] = useState("");
   const [loading, setDisableLoading] = useState(false);
 
+  const fetchAdvice = async () => {
+    try {
+      setDisableLoading(true);
+      setAdvice(null);
+      const responce = await axios.get("https://api.adviceslip.com/advice");
+      const { advice } = responce.data.slip;
+      setAdvice(advice);
+      return;
+    } catch (e) {
+      setError("Oops! Something went wrong.");
+    } finally {
+      setDisableLoading(false);
+    }
+  };
+
   useEffect(() => {
     async function getData() {
       setDisableLoading(true);
+
       try {
-        const responce = await axios.get("https://api.adviceslip.com/advice");
-        const { advice } = responce.data.slip;
-        setAdvice(advice);
+        fetchAdvice();
       } catch (e) {
         setError("Oops! Something went wrong.");
       } finally {
@@ -29,17 +43,20 @@ function App() {
       <h1 className="title">random abvice page</h1>
 
       <div className="body">
-        
-
         {loading && <ClipLoader />}
         {advice && <p className="advice"> {advice}</p>}
         {error && <p className="error">{error}</p>}
 
-        <form>
-          <button disabled={loading}>
-            {loading ? "please..." : "random advice"}
+        <div className="form">
+          <button
+            disabled={loading}
+            onClick={(e) => {
+              fetchAdvice();
+            }}
+          >
+            {loading ? "please wait..." : "random advice"}
           </button>
-        </form>
+        </div>
       </div>
     </>
   );
